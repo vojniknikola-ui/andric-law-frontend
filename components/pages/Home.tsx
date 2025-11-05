@@ -176,43 +176,45 @@ export const Home: React.FC = () => {
           faqSchema,
         ].filter(Boolean)}
       />
-      {/* Hero - Modern with gradient mesh */}
-      <section
-        className="relative isolate overflow-hidden bg-gradient-to-br from-brand-900 via-brand-700 to-brand-900 text-white transition-colors duration-300 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950"
-        itemScope
-        itemType="https://schema.org/LegalService"
-      >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(29,78,216,0.15),transparent_50%)] dark:bg-[radial-gradient(circle_at_30%_50%,rgba(59,130,246,0.1),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(37,99,235,0.1),transparent_50%)]" />
-        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:py-32 xl:py-40">
-          <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-green-400" />
-              <span className="text-sm font-medium">Dostupni za konsultacije</span>
+      {/* Premium Hero */}
+      <section className="relative overflow-hidden py-20 md:py-32">
+        <div className="absolute inset-0 bg-mesh opacity-50"></div>
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
+          <div className="absolute top-40 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '4s' }}></div>
+        </div>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
+            <div className="mb-6 glass-card inline-flex items-center gap-2 rounded-full px-6 py-3 animate-scale-in">
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+              </span>
+              <span className="text-sm font-semibold text-white">Dostupni za konsultacije</span>
             </div>
-            <h1 className="animate-hero text-balance text-3xl font-bold leading-tight text-white drop-shadow-2xl sm:text-4xl md:text-5xl lg:mb-8 lg:text-6xl xl:text-7xl">
+            <h1 className="animate-fade-in text-balance text-4xl font-bold leading-tight text-white text-glow sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-6">
               {t.home.hero.headline}
             </h1>
-            <p className="animate-hero animation-delay-200 mb-8 max-w-3xl text-balance text-lg leading-relaxed text-white/95 sm:text-xl md:text-2xl lg:mb-12">
+            <p className="animate-fade-in mb-10 max-w-3xl text-balance text-xl leading-relaxed text-gray-200 sm:text-2xl" style={{ animationDelay: '0.2s' }}>
               {heroSubheadlineParts[0]}
-              <span className="font-semibold text-white dark:text-slate-50">{firmInfo.founder}</span>
+              <span className="font-bold text-gradient">{firmInfo.founder}</span>
               {heroSubheadlineParts[1] ?? ''}
             </p>
 
-            {/* Primary CTAs - Modern glassmorphism */}
-            <div className="animate-hero animation-delay-400 mb-12 flex w-full flex-col items-center gap-4 sm:flex-row sm:justify-center lg:gap-6">
+            <div className="animate-fade-in flex w-full flex-col items-center gap-4 sm:flex-row sm:justify-center" style={{ animationDelay: '0.4s' }}>
               <a
                 href={phoneHref}
-                className="group inline-flex min-h-[56px] items-center justify-center gap-3 rounded-xl bg-cta-600 px-6 py-4 text-base font-semibold text-white shadow-lg shadow-cta-600/50 transition-all duration-300 hover:scale-105 hover:bg-cta-700 hover:shadow-xl hover:shadow-cta-600/60 sm:px-8 sm:text-lg lg:min-h-[64px] lg:px-10 lg:text-xl"
+                className="group relative inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-600 px-10 py-5 text-lg font-bold text-white shadow-2xl transition-all duration-300 hover:scale-110 hover:shadow-blue-500/50 neon-glow"
               >
-                <Phone size={24} className="transition-transform group-hover:rotate-12" />
+                <Phone size={24} className="animate-pulse" />
                 {t.home.hero.callNow}
               </a>
               <Link
                 href="/contact"
-                className="group inline-flex min-h-[56px] items-center justify-center gap-3 rounded-xl border-2 border-white/30 bg-white/10 px-6 py-4 text-base font-semibold text-white backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-white/50 hover:bg-white/20 sm:px-8 sm:text-lg lg:min-h-[64px] lg:px-10 lg:text-xl"
+                className="group glass-card inline-flex items-center justify-center gap-3 rounded-2xl px-10 py-5 text-lg font-bold text-white transition-all duration-300 hover:scale-110"
               >
-                <Mail size={24} className="transition-transform group-hover:scale-110" />
+                <Mail size={24} />
                 {t.home.hero.sendInquiry}
               </Link>
             </div>
@@ -222,45 +224,45 @@ export const Home: React.FC = () => {
 
       {/* Trust Badges */}
       <AnimatedSection animation="fade">
-        <section className="bg-white py-12 transition-colors duration-300 dark:bg-slate-950">
+        <section className="py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <TrustBadges />
           </div>
         </section>
       </AnimatedSection>
 
-      {/* Situation Navigator - Bento Grid Style */}
+      {/* Services */}
       <AnimatedSection animation="slide-up" delay={100}>
-        <section className="bg-gradient-to-b from-white to-gray-50 py-12 transition-colors duration-300 dark:from-slate-950 dark:to-slate-900 md:py-16 lg:py-20 xl:py-24">
+        <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 transition-colors duration-300 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center">
-            <span className="mb-4 inline-block rounded-full bg-cta-600/10 px-4 py-1.5 text-sm font-semibold text-cta-600 dark:bg-cta-600/20 dark:text-cta-400">Naše usluge</span>
-            <h2 className="mb-6 text-2xl font-bold text-brand-900 dark:text-slate-100 sm:text-3xl md:text-4xl lg:text-5xl">
+          <div className="mb-16 text-center">
+            <span className="glass-card mb-6 inline-block rounded-full px-6 py-2 text-sm font-bold text-blue-400">Naše usluge</span>
+            <h2 className="mb-6 text-4xl font-bold text-white text-glow md:text-5xl lg:text-6xl">
               {t.home.situations.heading}
             </h2>
-            <p className="mx-auto max-w-3xl text-base text-ink-600 dark:text-slate-300 md:text-lg lg:text-xl">
+            <p className="mx-auto max-w-3xl text-xl text-gray-300">
               {t.home.situations.description}
             </p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4 lg:gap-6">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {situations.map((situation, index) => (
               <Link
                 key={situation.title}
                 href={situation.link}
-                className="group relative overflow-hidden rounded-2xl bg-white p-6 shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800 md:p-8"
+                className="group glass-card relative overflow-hidden rounded-3xl p-8 hover-lift"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-cta-600/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 <div className="relative">
-                  <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-cta-600 to-cta-700 text-white shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:shadow-xl lg:h-16 lg:w-16">
+                  <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-xl transition-all duration-500 group-hover:scale-110 neon-glow">
                     {situation.icon}
                   </div>
-                  <h3 className="mb-2 text-lg font-bold text-brand-900 transition-colors group-hover:text-cta-600 dark:text-slate-100 dark:group-hover:text-cta-400 lg:text-xl">
+                  <h3 className="mb-3 text-xl font-bold text-white group-hover:text-gradient">
                     {situation.title}
                   </h3>
-                  <div className="flex items-center gap-2 text-sm font-semibold text-cta-600 opacity-0 transition-all duration-300 group-hover:opacity-100 dark:text-cta-400">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-blue-400 opacity-0 transition-all duration-300 group-hover:opacity-100">
                     Saznaj više
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-2" />
                   </div>
                 </div>
               </Link>
