@@ -175,15 +175,21 @@ export const Home: React.FC = () => {
           faqSchema,
         ].filter(Boolean)}
       />
-      {/* Hero - F-pattern optimized */}
+      {/* Hero - Modern with gradient mesh */}
       <section
         className="relative isolate overflow-hidden bg-gradient-to-br from-brand-900 via-brand-700 to-brand-900 text-white transition-colors duration-300 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950"
         itemScope
         itemType="https://schema.org/LegalService"
       >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(29,78,216,0.15),transparent_50%)] dark:bg-[radial-gradient(circle_at_30%_50%,rgba(59,130,246,0.1),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(37,99,235,0.1),transparent_50%)]" />
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:py-32 xl:py-40">
           <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-            <h1 className="animate-hero text-balance text-3xl font-bold leading-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl lg:mb-8 lg:text-6xl xl:text-7xl">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-green-400" />
+              <span className="text-sm font-medium">Dostupni za konsultacije</span>
+            </div>
+            <h1 className="animate-hero text-balance text-3xl font-bold leading-tight text-white drop-shadow-2xl sm:text-4xl md:text-5xl lg:mb-8 lg:text-6xl xl:text-7xl">
               {t.home.hero.headline}
             </h1>
             <p className="animate-hero animation-delay-200 mb-8 max-w-3xl text-balance text-lg leading-relaxed text-white/95 sm:text-xl md:text-2xl lg:mb-12">
@@ -192,20 +198,20 @@ export const Home: React.FC = () => {
               {heroSubheadlineParts[1] ?? ''}
             </p>
 
-            {/* Primary CTAs - large touch targets */}
+            {/* Primary CTAs - Modern glassmorphism */}
             <div className="animate-hero animation-delay-400 mb-12 flex w-full flex-col items-center gap-4 sm:flex-row sm:justify-center lg:gap-6">
               <a
                 href={phoneHref}
-                className="inline-flex min-h-[56px] items-center justify-center gap-3 rounded-lg bg-cta-600 px-6 py-4 text-base font-semibold text-white transition-all duration-300 hover:scale-105 hover:bg-cta-700 sm:px-8 sm:text-lg lg:min-h-[64px] lg:px-10 lg:text-xl"
+                className="group inline-flex min-h-[56px] items-center justify-center gap-3 rounded-xl bg-cta-600 px-6 py-4 text-base font-semibold text-white shadow-lg shadow-cta-600/50 transition-all duration-300 hover:scale-105 hover:bg-cta-700 hover:shadow-xl hover:shadow-cta-600/60 sm:px-8 sm:text-lg lg:min-h-[64px] lg:px-10 lg:text-xl"
               >
-                <Phone size={24} />
+                <Phone size={24} className="transition-transform group-hover:rotate-12" />
                 {t.home.hero.callNow}
               </a>
               <Link
                 href="/contact"
-                className="inline-flex min-h-[56px] items-center justify-center gap-3 rounded-lg border-2 border-white/30 bg-white/10 px-6 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-white/30 dark:border-white/40 dark:hover:bg-white/20 sm:px-8 sm:text-lg lg:min-h-[64px] lg:px-10 lg:text-xl"
+                className="group inline-flex min-h-[56px] items-center justify-center gap-3 rounded-xl border-2 border-white/30 bg-white/10 px-6 py-4 text-base font-semibold text-white backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-white/50 hover:bg-white/20 sm:px-8 sm:text-lg lg:min-h-[64px] lg:px-10 lg:text-xl"
               >
-                <Mail size={24} />
+                <Mail size={24} className="transition-transform group-hover:scale-110" />
                 {t.home.hero.sendInquiry}
               </Link>
             </div>
@@ -213,65 +219,92 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Situation Navigator - high information scent */}
-      <section className="bg-white py-12 transition-colors duration-300 dark:bg-slate-950 md:py-16 lg:py-20 xl:py-24">
+      {/* Situation Navigator - Bento Grid Style */}
+      <section className="bg-gradient-to-b from-white to-gray-50 py-12 transition-colors duration-300 dark:from-slate-950 dark:to-slate-900 md:py-16 lg:py-20 xl:py-24">
         <div className="mx-auto max-w-7xl px-4 transition-colors duration-300 sm:px-6 lg:px-8">
-          <h2 className="mb-6 text-2xl font-bold text-brand-900 dark:text-slate-100 sm:text-3xl md:text-4xl lg:mb-10 lg:text-5xl">
-            {t.home.situations.heading}
-          </h2>
-          <p className="mb-8 max-w-4xl text-base text-ink-600 dark:text-slate-300 md:text-lg lg:mb-10 lg:text-xl">
-            {t.home.situations.description}
-          </p>
-          <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-2 lg:gap-8 xl:grid-cols-4">
+          <div className="mb-12 text-center">
+            <span className="mb-4 inline-block rounded-full bg-cta-600/10 px-4 py-1.5 text-sm font-semibold text-cta-600 dark:bg-cta-600/20 dark:text-cta-400">Naše usluge</span>
+            <h2 className="mb-6 text-2xl font-bold text-brand-900 dark:text-slate-100 sm:text-3xl md:text-4xl lg:text-5xl">
+              {t.home.situations.heading}
+            </h2>
+            <p className="mx-auto max-w-3xl text-base text-ink-600 dark:text-slate-300 md:text-lg lg:text-xl">
+              {t.home.situations.description}
+            </p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4 lg:gap-6">
             {situations.map((situation, index) => (
               <Link
                 key={situation.title}
                 href={situation.link}
-                className="group flex items-center gap-4 rounded-xl border-2 border-transparent bg-gray-50 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-line-200 hover:bg-blue-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700 dark:hover:bg-slate-800 md:p-6 lg:p-8"
+                className="group relative overflow-hidden rounded-2xl bg-white p-6 shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800 md:p-8"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-blue-100 text-brand-700 transition-all duration-300 group-hover:bg-cta-600 group-hover:text-white dark:bg-slate-800 dark:text-slate-200 dark:group-hover:bg-cta-600 lg:h-14 lg:w-14">
-                  {situation.icon}
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-base font-semibold text-brand-900 transition-colors group-hover:text-cta-600 dark:text-slate-100 dark:group-hover:text-cta-400 md:text-lg lg:text-xl">
+                <div className="absolute inset-0 bg-gradient-to-br from-cta-600/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="relative">
+                  <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-cta-600 to-cta-700 text-white shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:shadow-xl lg:h-16 lg:w-16">
+                    {situation.icon}
+                  </div>
+                  <h3 className="mb-2 text-lg font-bold text-brand-900 transition-colors group-hover:text-cta-600 dark:text-slate-100 dark:group-hover:text-cta-400 lg:text-xl">
                     {situation.title}
                   </h3>
+                  <div className="flex items-center gap-2 text-sm font-semibold text-cta-600 opacity-0 transition-all duration-300 group-hover:opacity-100 dark:text-cta-400">
+                    Saznaj više
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </div>
                 </div>
-                <ArrowRight className="h-5 w-5 text-ink-600 transition-all group-hover:translate-x-1 group-hover:text-cta-600 dark:text-slate-300 dark:group-hover:text-cta-400" />
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Credentials - evidence, not marketing */}
-      <section className="bg-gray-50 py-12 transition-colors duration-300 dark:bg-slate-900 md:py-16 lg:py-20 xl:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="mb-8 text-2xl font-bold text-brand-900 dark:text-slate-100 sm:text-3xl md:text-4xl lg:mb-12 lg:text-5xl">
-            {t.home.credentials.heading}
-          </h2>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
-            {credentials.map((credential) => (
-              <div key={credential} className="flex items-start gap-3">
-                <CheckCircle className="mt-1 h-6 w-6 flex-shrink-0 text-success-600 dark:text-green-400" />
-                <p className="leading-relaxed text-ink-900 dark:text-slate-200">{credential}</p>
+      {/* Credentials - Modern Stats */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-brand-900 to-brand-800 py-12 text-white transition-colors duration-300 dark:from-slate-900 dark:to-slate-800 md:py-16 lg:py-20 xl:py-24">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjAzIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl">
+              {t.home.credentials.heading}
+            </h2>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+            {credentials.map((credential, index) => (
+              <div 
+                key={credential} 
+                className="group relative overflow-hidden rounded-2xl bg-white/10 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/20"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="absolute right-0 top-0 h-20 w-20 translate-x-8 -translate-y-8 rounded-full bg-white/5 transition-transform duration-500 group-hover:scale-150" />
+                <div className="relative flex items-start gap-4">
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-green-400/20">
+                    <CheckCircle className="h-6 w-6 text-green-400" />
+                  </div>
+                  <p className="leading-relaxed text-white/90">{credential}</p>
+                </div>
               </div>
             ))}
           </div>
 
-          <div className="mx-auto mt-12 max-w-4xl rounded-xl border-2 border-line-200 bg-white p-6 shadow-soft transition-colors duration-300 dark:border-slate-700 dark:bg-slate-800 lg:mt-16 lg:p-10">
-            <h3 className="mb-6 text-xl font-bold text-brand-900 dark:text-slate-100 md:text-2xl lg:mb-8 lg:text-3xl">
-              {t.home.pricing.heading}
-            </h3>
-            <div className="mb-6 space-y-4 lg:space-y-5">
-              {pricingItems.map((item) => (
-                <div key={item.label} className="flex items-center justify-between">
-                  <span className="font-medium text-ink-900 dark:text-slate-200">{item.label}</span>
-                  <span className="font-bold text-brand-900 dark:text-cta-400">{item.value}</span>
-                </div>
-              ))}
+          <div className="relative mx-auto mt-12 max-w-4xl overflow-hidden rounded-3xl bg-white/95 p-8 shadow-2xl backdrop-blur-sm transition-all duration-300 hover:shadow-3xl dark:bg-slate-800/95 lg:mt-16 lg:p-12">
+            <div className="absolute right-0 top-0 h-40 w-40 translate-x-20 -translate-y-20 rounded-full bg-gradient-to-br from-cta-600/20 to-transparent blur-3xl" />
+            <div className="relative">
+              <h3 className="mb-8 text-center text-2xl font-bold text-brand-900 dark:text-slate-100 md:text-3xl lg:text-4xl">
+                {t.home.pricing.heading}
+              </h3>
+              <div className="mb-8 space-y-6">
+                {pricingItems.map((item, index) => (
+                  <div 
+                    key={item.label} 
+                    className="group flex items-center justify-between rounded-xl bg-gray-50 p-4 transition-all duration-300 hover:bg-cta-50 dark:bg-slate-700/50 dark:hover:bg-slate-700"
+                    style={{ animationDelay: `${index * 50}ms` }}
+                  >
+                    <span className="font-semibold text-ink-900 dark:text-slate-200">{item.label}</span>
+                    <span className="text-xl font-bold text-cta-600 dark:text-cta-400">{item.value}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="text-center text-sm text-ink-600 dark:text-slate-300 md:text-base">{t.home.pricing.note}</p>
             </div>
-            <p className="text-sm text-ink-600 dark:text-slate-300 md:text-base">{t.home.pricing.note}</p>
           </div>
         </div>
       </section>
@@ -303,26 +336,36 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Process overview */}
-      <section className="bg-gray-50 py-12 transition-colors duration-300 dark:bg-slate-900 md:py-16 lg:py-20 xl:py-24">
+      {/* Process overview - Timeline Style */}
+      <section className="relative bg-white py-12 transition-colors duration-300 dark:bg-slate-950 md:py-16 lg:py-20 xl:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 max-w-2xl">
-            <h2 className="font-serif text-3xl font-bold text-brand-900 dark:text-slate-100 md:text-4xl">{t.home.process.heading}</h2>
-            <p className="text-ink-600 dark:text-slate-300">{t.home.process.description}</p>
+          <div className="mb-16 text-center">
+            <span className="mb-4 inline-block rounded-full bg-cta-600/10 px-4 py-1.5 text-sm font-semibold text-cta-600 dark:bg-cta-600/20 dark:text-cta-400">Kako radimo</span>
+            <h2 className="mb-4 font-serif text-3xl font-bold text-brand-900 dark:text-slate-100 md:text-4xl lg:text-5xl">{t.home.process.heading}</h2>
+            <p className="mx-auto max-w-2xl text-lg text-ink-600 dark:text-slate-300">{t.home.process.description}</p>
           </div>
-          <div className="grid gap-8 md:grid-cols-3">
-            {processSteps.map((step, index) => (
-              <div
-                key={step.title}
-                className="rounded-3xl border border-line-200 bg-white p-8 shadow-soft transition-all duration-300 hover:shadow-medium dark:border-slate-700 dark:bg-slate-800"
-              >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-cta-600/10 text-cta-600 font-semibold dark:bg-cta-600/20 dark:text-cta-400">
-                  0{index + 1}
+          <div className="relative">
+            <div className="absolute left-1/2 top-0 hidden h-full w-0.5 -translate-x-1/2 bg-gradient-to-b from-cta-600 via-cta-600/50 to-transparent md:block" />
+            <div className="space-y-12 md:space-y-16">
+              {processSteps.map((step, index) => (
+                <div
+                  key={step.title}
+                  className={`relative flex flex-col items-center gap-8 md:flex-row ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                >
+                  <div className="flex-1">
+                    <div className={`group rounded-3xl bg-gradient-to-br from-white to-gray-50 p-8 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl dark:from-slate-800 dark:to-slate-900 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                      <div className={`mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-cta-600 to-cta-700 text-2xl font-bold text-white shadow-lg transition-transform duration-500 group-hover:scale-110`}>
+                        0{index + 1}
+                      </div>
+                      <h3 className="mb-3 text-2xl font-bold text-brand-900 dark:text-slate-100">{step.title}</h3>
+                      <p className="text-lg leading-relaxed text-ink-600 dark:text-slate-300">{step.description}</p>
+                    </div>
+                  </div>
+                  <div className="relative z-10 hidden h-6 w-6 rounded-full border-4 border-cta-600 bg-white shadow-lg dark:bg-slate-900 md:block" />
+                  <div className="flex-1" />
                 </div>
-                <h3 className="mb-2 text-xl font-semibold text-brand-900 dark:text-slate-100">{step.title}</h3>
-                <p className="leading-relaxed text-ink-600 dark:text-slate-300">{step.description}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
