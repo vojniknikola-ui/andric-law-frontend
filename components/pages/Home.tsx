@@ -19,6 +19,7 @@ import { firmInfo } from '@/lib/firmInfo';
 import { useTranslations } from '@/lib/i18n/useTranslations';
 import { StructuredData } from '@/components/StructuredData';
 import { BASE_URL, DEFAULT_CITY, DEFAULT_COUNTRY, DEFAULT_REGION } from '@/lib/seo/constants';
+import { AnimatedSection, ModernCard, TrustBadges, SocialProof, GradientText } from '@/components/ui';
 
 export const Home: React.FC = () => {
   const { t, language } = useTranslations();
@@ -219,8 +220,18 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Trust Badges */}
+      <AnimatedSection animation="fade">
+        <section className="bg-white py-12 transition-colors duration-300 dark:bg-slate-950">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <TrustBadges />
+          </div>
+        </section>
+      </AnimatedSection>
+
       {/* Situation Navigator - Bento Grid Style */}
-      <section className="bg-gradient-to-b from-white to-gray-50 py-12 transition-colors duration-300 dark:from-slate-950 dark:to-slate-900 md:py-16 lg:py-20 xl:py-24">
+      <AnimatedSection animation="slide-up" delay={100}>
+        <section className="bg-gradient-to-b from-white to-gray-50 py-12 transition-colors duration-300 dark:from-slate-950 dark:to-slate-900 md:py-16 lg:py-20 xl:py-24">
         <div className="mx-auto max-w-7xl px-4 transition-colors duration-300 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
             <span className="mb-4 inline-block rounded-full bg-cta-600/10 px-4 py-1.5 text-sm font-semibold text-cta-600 dark:bg-cta-600/20 dark:text-cta-400">Naše usluge</span>
@@ -257,6 +268,7 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Credentials - Modern Stats */}
       <section className="relative overflow-hidden bg-gradient-to-br from-brand-900 to-brand-800 py-12 text-white transition-colors duration-300 dark:from-slate-900 dark:to-slate-800 md:py-16 lg:py-20 xl:py-24">
@@ -422,8 +434,24 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Social Proof */}
+      <AnimatedSection animation="slide-up">
+        <section className="bg-gradient-to-br from-gray-50 to-white py-12 transition-colors duration-300 dark:from-slate-900 dark:to-slate-950 md:py-16 lg:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-12 text-center">
+              <span className="mb-4 inline-block rounded-full bg-cta-600/10 px-4 py-1.5 text-sm font-semibold text-cta-600 dark:bg-cta-600/20 dark:text-cta-400">Testimonials</span>
+              <h2 className="mb-4 text-3xl font-bold text-brand-900 dark:text-slate-100 md:text-4xl lg:text-5xl">
+                Šta kažu naši <GradientText gradient="brand">klijenti</GradientText>
+              </h2>
+            </div>
+            <SocialProof />
+          </div>
+        </section>
+      </AnimatedSection>
+
       {/* FAQ */}
-      <section className="bg-white py-12 transition-colors duration-300 dark:bg-slate-950 md:py-16 lg:py-20 xl:py-24">
+      <AnimatedSection animation="fade">
+        <section className="bg-white py-12 transition-colors duration-300 dark:bg-slate-950 md:py-16 lg:py-20 xl:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2 className="mb-6 text-center font-serif text-3xl font-bold text-brand-900 dark:text-slate-100 md:text-4xl">
             {t.home.faqs.heading}
@@ -455,6 +483,7 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </section>
+      </AnimatedSection>
     </div>
   );
 };

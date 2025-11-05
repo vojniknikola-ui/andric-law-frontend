@@ -149,6 +149,14 @@
       padding: 5rem 1rem;
     }
   }
+
+
+
+  .gradient-mesh {
+    background: 
+      radial-gradient(at 0% 0%, rgba(29, 78, 216, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(37, 99, 235, 0.1) 0px, transparent 50%);
+  }
 }
 
 @layer utilities {
@@ -167,6 +175,14 @@
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+  }
   
   .animation-delay-200 {
     animation-delay: 0.2s;
@@ -174,6 +190,14 @@
   
   .animation-delay-400 {
     animation-delay: 0.4s;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 0.6s;
+  }
+
+  .text-balance {
+    text-wrap: balance;
   }
   
   @keyframes fadeIn {
@@ -215,13 +239,56 @@
       transform: translateY(-8px);
     }
   }
+
+  @keyframes glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(29, 78, 216, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(29, 78, 216, 0.6);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
   
   @media (prefers-reduced-motion: reduce) {
     .animate-hero,
     .animate-fadeIn,
     .animate-slideUp,
-    .animate-float {
+    .animate-float,
+    .animate-glow,
+    .animate-shimmer {
       animation: none !important;
     }
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .not-sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
   }
 }

@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Inter, Merriweather } from 'next/font/google'
 import './globals.css'
 import { Providers } from './providers'
+import { FloatingCTA, SkipToContent, ProgressBar } from '@/components/ui'
+import { firmInfo } from '@/lib/firmInfo'
 
 const inter = Inter({ 
   subsets: ['latin'], 
@@ -52,9 +54,12 @@ export default function RootLayout({
         <link rel="canonical" href="https://andriclaw.ba" />
       </head>
       <body className="antialiased">
+        <SkipToContent />
+        <ProgressBar />
         <Providers>
           {children}
         </Providers>
+        <FloatingCTA phoneNumber={firmInfo.phone} text="Pozovite nas" />
       </body>
     </html>
   )
