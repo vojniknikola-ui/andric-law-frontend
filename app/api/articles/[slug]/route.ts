@@ -3,10 +3,11 @@ import { list } from '@vercel/blob';
 
 export async function GET(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
-    const { blobs } = await list({ prefix: `articles/${params.slug}.json` });
+    const { slug } = await params;
+    const { blobs } = await list({ prefix: `articles/${slug}.json` });
     
     if (blobs.length === 0) {
       return NextResponse.json({ error: 'Article not found' }, { status: 404 });
