@@ -643,29 +643,13 @@ Svaki ugovor mora sadržavati:
 ];
 
 export const getBlogPosts = async (): Promise<BlogPost[]> => {
-  try {
-    const response = await fetch('/api/articles', { next: { revalidate: 60 } });
-    if (!response.ok) return BLOG_DATA;
-    return await response.json();
-  } catch (error) {
-    return BLOG_DATA;
-  }
+  return BLOG_DATA;
 };
 
 export const getBlogPost = async (slugOrId: string): Promise<BlogPost> => {
-  try {
-    const response = await fetch(`/api/articles/${slugOrId}`, { next: { revalidate: 60 } });
-    if (!response.ok) {
-      const post = BLOG_DATA.find(p => p.slug === slugOrId || p.id === slugOrId);
-      if (!post) throw new Error('Post not found');
-      return post;
-    }
-    return await response.json();
-  } catch (error) {
-    const post = BLOG_DATA.find(p => p.slug === slugOrId || p.id === slugOrId);
-    if (!post) throw new Error('Post not found');
-    return post;
-  }
+  const post = BLOG_DATA.find(p => p.slug === slugOrId || p.id === slugOrId);
+  if (!post) throw new Error('Post not found');
+  return post;
 };
 
 export const uploadImage = async (file: File): Promise<{ id: string; url: string }> => {

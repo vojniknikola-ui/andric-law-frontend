@@ -9,10 +9,16 @@ type Props = {
 }
 
 export const revalidate = 3600
+export const dynamic = 'force-static'
+export const dynamicParams = true
 
 export async function generateStaticParams() {
-  const posts = await getBlogPosts()
-  return posts.map((post) => ({ slug: post.slug }))
+  try {
+    const posts = await getBlogPosts()
+    return posts.slice(0, 10).map((post) => ({ slug: post.slug }))
+  } catch (error) {
+    return []
+  }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

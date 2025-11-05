@@ -8,9 +8,15 @@ export const metadata = {
 }
 
 export const revalidate = 1800
+export const dynamic = 'force-static'
 
 export default async function BlogPage() {
-  const posts = await getBlogPosts()
+  let posts = []
+  try {
+    posts = await getBlogPosts()
+  } catch (error) {
+    console.error('Blog fetch error:', error)
+  }
   
   return (
     <PageWrapper>
