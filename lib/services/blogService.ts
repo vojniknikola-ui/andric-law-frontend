@@ -642,11 +642,11 @@ Svaki ugovor mora sadržavati:
   }
 ];
 
-export const getBlogPosts = async (): Promise<BlogPost[]> => {
-  return BLOG_DATA;
-};
+export { BLOG_DATA };
 
-export const getBlogPost = async (slugOrId: string): Promise<BlogPost> => {
+export const getBlogPosts = (): BlogPost[] => BLOG_DATA;
+
+export const getBlogPost = (slugOrId: string): BlogPost => {
   const post = BLOG_DATA.find(p => p.slug === slugOrId || p.id === slugOrId);
   if (!post) throw new Error('Post not found');
   return post;

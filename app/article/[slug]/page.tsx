@@ -1,51 +1,37 @@
 import { ArticleDetail } from '@/components/pages/ArticleDetail'
 import { PageWrapper } from '@/components/PageWrapper'
 import { Metadata } from 'next'
-import { getBlogPost, getBlogPosts } from '@/lib/services/blogService'
+import { BLOG_DATA } from '@/lib/services/blogService'
 import { notFound } from 'next/navigation'
 
 type Props = {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
-export const revalidate = 3600
-export const dynamic = 'force-static'
-export const dynamicParams = true
-
-export async function generateStaticParams() {
-  try {
-    const posts = await getBlogPosts()
-    return posts.slice(0, 10).map((post) => ({ slug: post.slug }))
-  } catch (error) {
-    return []
-  }
+export function generateStaticParams() {
+  return BLOG_DATA.map((post) => ({ slug: post.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  try {
-    const article = await getBlogPost(params.slug)
-    return {
-      title: `${article.title} | Andrić Law`,
-      description: article.summary || article.title,
-    }
-  } catch (error) {
-    return {
-      title: 'Članak | Andrić Law',
-    }
+  const { slug } = await params
+  const article = BLOG_DATA.find(p => p.slug === slug)
+  if (!article) {
+    return { title: 'Članak | Andrić Law' }
+  }
+  return {
+    title: `${article.title} | Andrić Law`,
+    description: article.summary || article.title,
   }
 }
 
 export default async function ArticlePage({ params }: Props) {
-  let article
-  try {
-    article = await getBlogPost(params.slug)
-  } catch (error) {
-    notFound()
-  }
+  const { slug } = await params
+  const article = BLOG_DATA.find(p => p.slug === slug)
+  if (!article) notFound()
 
   return (
     <PageWrapper>
-      <ArticleDetail slug={params.slug} initialArticle={article} />
+      <ArticleDetail slug={slug} initialArticle={article} />
     </PageWrapper>
   )
 }

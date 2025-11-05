@@ -16,8 +16,8 @@
   }
 
   body {
-    @apply text-ink-900 dark:text-slate-100;
     margin: 0;
+    color: #111827;
     background-color: #F7F7F5;
     font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -27,11 +27,16 @@
 
   .dark body {
     background-color: #0f172a;
+    color: #F1F5F9;
   }
   
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-merriweather), Georgia, serif;
-    @apply text-brand-900 dark:text-slate-100;
+    color: #0D1B2A;
+  }
+  
+  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    color: #F1F5F9;
   }
 }
 
@@ -93,12 +98,26 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-cta-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-cta-700 transition-all duration-300 shadow-medium hover:shadow-hard;
+    background-color: #1D4ED8;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background-color: #1A43BF;
   }
   
   .btn-secondary {
-    @apply bg-white text-brand-900 px-8 py-4 rounded-lg font-semibold transition-all duration-300 shadow-medium hover:shadow-hard border-2;
-    border-color: #E5E7EB;
+    background-color: white;
+    color: #0D1B2A;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    border: 2px solid #E5E7EB;
+    transition: all 0.3s;
   }
   
   .btn-secondary:hover {
@@ -106,11 +125,29 @@
   }
   
   .card {
-    @apply rounded-xl shadow-soft hover:shadow-medium transition-all duration-300 bg-white dark:bg-slate-800;
+    border-radius: 0.75rem;
+    background-color: white;
+    transition: all 0.3s;
+  }
+  
+  .dark .card {
+    background-color: #1E293B;
   }
   
   .section-padding {
-    @apply py-12 px-4 md:py-16 lg:py-20;
+    padding: 3rem 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .section-padding {
+      padding: 4rem 1rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding: 5rem 1rem;
+    }
   }
 }
 

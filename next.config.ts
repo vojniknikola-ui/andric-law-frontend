@@ -1,21 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'standalone',
+  reactStrictMode: true,
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**.vercel-storage.com',
-      },
-      {
-        protocol: 'https',
-        hostname: '**.trycloudflare.com',
-      },
-    ],
-  },
-  experimental: {
-    optimizeCss: true,
+    unoptimized: true,
   },
 };
 
