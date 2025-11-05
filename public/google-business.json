@@ -1,0 +1,50 @@
+{
+  "name": "Andrić Law",
+  "businessType": "Advokatska kancelarija",
+  "category": "Attorney",
+  "address": {
+    "street": "Ulica",
+    "city": "Sarajevo",
+    "postalCode": "71000",
+    "country": "Bosna i Hercegovina"
+  },
+  "phone": "+387-XX-XXX-XXX",
+  "website": "https://andriclaw.ba",
+  "email": "info@andriclaw.ba",
+  "hours": {
+    "monday": "09:00-17:00",
+    "tuesday": "09:00-17:00",
+    "wednesday": "09:00-17:00",
+    "thursday": "09:00-17:00",
+    "friday": "09:00-17:00",
+    "saturday": "Po dogovoru",
+    "sunday": "Zatvoreno"
+  },
+  "services": [
+    "Radno pravo",
+    "IT ugovori (MSA/SOW)",
+    "Privredno pravo",
+    "Porodično pravo",
+    "Ugovorno pravo",
+    "Sudsko zastupanje"
+  ],
+  "description": "Advokatska kancelarija u Sarajevu specijalizovana za radno pravo, IT ugovore, privredno i porodično pravo. Advokat Nikola Andrić sa 10+ godina iskustva. Transparentne tarife, brz odgovor u roku od 24 sata.",
+  "keywords": [
+    "advokat Sarajevo",
+    "advokatska kancelarija Sarajevo",
+    "radno pravo Sarajevo",
+    "IT ugovori BiH",
+    "MSA SOW",
+    "otkaz",
+    "osnivanje firme Sarajevo",
+    "advokat Nikola Andrić",
+    "pravna pomoć Sarajevo"
+  ],
+  "serviceArea": [
+    "Sarajevo",
+    "Kanton Sarajevo",
+    "Federacija BiH",
+    "Republika Srpska",
+    "Bosna i Hercegovina"
+  ]
+}

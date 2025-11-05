@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320">
+  <defs>
+    <radialGradient id="inner-gradient" cx="50%" cy="38%" r="70%">
+      <stop offset="0" stop-color="#1C4A7C" />
+      <stop offset="0.6" stop-color="#0F2C4F" />
+      <stop offset="1" stop-color="#071323" />
+    </radialGradient>
+    <linearGradient id="rim-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0" stop-color="#F5F7FA" />
+      <stop offset="0.4" stop-color="#D5DAE1" />
+      <stop offset="0.5" stop-color="#B8C0CA" />
+      <stop offset="0.65" stop-color="#D7DBE2" />
+      <stop offset="1" stop-color="#FBFCFD" />
+    </linearGradient>
+    <linearGradient id="metal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0" stop-color="#F3F5F8" />
+      <stop offset="0.45" stop-color="#C9CED6" />
+      <stop offset="1" stop-color="#F2F4F8" />
+    </linearGradient>
+    <linearGradient id="beam" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0" stop-color="#E6EAEE" />
+      <stop offset="0.5" stop-color="#BFC5CE" />
+      <stop offset="1" stop-color="#EEF1F5" />
+    </linearGradient>
+    <linearGradient id="shine" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.7" />
+      <stop offset="0.55" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#000000" flood-opacity="0.2" />
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <circle cx="160" cy="160" r="148" fill="#E6EBF0" />
+    <circle cx="160" cy="160" r="144" fill="#0A1628" />
+    <circle cx="160" cy="160" r="132" fill="url(#inner-gradient)" />
+    <circle cx="160" cy="160" r="132" fill="url(#shine)" opacity="0.35" />
+    <circle cx="160" cy="160" r="136" fill="none" stroke="url(#rim-gradient)" stroke-width="12" />
+  </g>
+
+  <!-- Letter A with integrated scales -->
+  <g transform="translate(60 58)">
+    <!-- Main letter A -->
+    <path d="M100 0L170 188H143L130 152H92L79 188H52L122 0Z" fill="url(#metal)" />
+    <!-- Inner shadow for A -->
+    <path d="M100 24L158 176H143L132 146H88L77 176H62L100 24Z" fill="rgba(0,0,0,0.08)" />
+
+    <!-- Centre pillar -->
+    <rect x="96" y="64" width="12" height="60" rx="6" fill="url(#metal)" />
+
+    <!-- Top connectors -->
+    <circle cx="102" cy="56" r="10" fill="url(#metal)" />
+    <circle cx="68" cy="120" r="8" fill="url(#metal)" />
+    <circle cx="136" cy="120" r="8" fill="url(#metal)" />
+
+    <!-- Beam -->
+    <rect x="62" y="112" width="80" height="14" rx="7" fill="url(#beam)" />
+
+    <!-- Scale cables -->
+    <path d="M70 119L58 158" stroke="url(#metal)" stroke-width="8" stroke-linecap="round" />
+    <path d="M134 119L146 158" stroke="url(#metal)" stroke-width="8" stroke-linecap="round" />
+
+    <!-- Scale dishes -->
+    <path d="M34 158C34 141.431 47.4315 128 64 128C80.5685 128 94 141.431 94 158H34Z" fill="url(#metal)" />
+    <path d="M34 158C34 141.431 47.4315 128 64 128C80.5685 128 94 141.431 94 158" stroke="rgba(0,0,0,0.08)" stroke-width="3" />
+
+    <path d="M174 158C174 141.431 160.569 128 144 128C127.431 128 114 141.431 114 158H174Z" fill="url(#metal)" />
+    <path d="M174 158C174 141.431 160.569 128 144 128C127.431 128 114 141.431 114 158" stroke="rgba(0,0,0,0.08)" stroke-width="3" />
+
+    <!-- Beam highlight -->
+    <rect x="62" y="112" width="80" height="6" rx="3" fill="#FFFFFF" opacity="0.35" />
+
+    <!-- Subtle glow behind A -->
+    <ellipse cx="122" cy="94" rx="110" ry="110" fill="rgba(255,255,255,0.08)" />
+  </g>
+</svg>

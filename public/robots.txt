@@ -1,0 +1,40 @@
+# Core web crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: bingbot
+Allow: /
+
+# OpenAI - ChatGPT Search
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Disallow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Anthropic Claude
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Other AI crawlers
+User-agent: CCBot
+Disallow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Bytespider
+Disallow: /
+
+# Default
+User-agent: *
+Allow: /
+
+Sitemap: https://andriclaw.ba/sitemap.xml
