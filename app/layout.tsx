@@ -3,6 +3,7 @@ import { Inter, Merriweather } from 'next/font/google'
 import './globals.css'
 import { Providers } from './providers'
 import { FloatingCTA, SkipToContent, ProgressBar } from '@/components/ui'
+import { Layout } from '@/components/Layout'
 import { firmInfo } from '@/lib/firmInfo'
 
 const inter = Inter({ 
@@ -57,7 +58,9 @@ export default function RootLayout({
         <SkipToContent />
         <ProgressBar />
         <Providers>
-          {children}
+          <Layout>
+            {children}
+          </Layout>
         </Providers>
         <FloatingCTA phoneNumber={firmInfo.phone} text="Pozovite nas" />
       </body>
