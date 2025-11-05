@@ -68,25 +68,25 @@ export const ClientLayout: React.FC<{ children: React.ReactNode }> = ({ children
             <img
               src={firmInfo.logo}
               alt={`${firmInfo.name} logo`}
-              className="h-8 w-auto md:h-10 lg:h-12"
+              className="h-8 w-auto md:h-10 lg:h-12 transition-transform duration-200 group-hover:scale-105"
               width="40"
               height="40"
             />
-            <div className="font-serif text-xl font-bold tracking-tight text-brand-900 transition-colors duration-200 group-hover:text-brand-700 dark:text-slate-100 dark:group-hover:text-slate-300 md:text-2xl lg:text-3xl">
+            <div className="font-serif text-xl font-bold tracking-tight text-brand-900 transition-colors duration-200 group-hover:text-brand-700 dark:text-slate-100 dark:group-hover:text-slate-300 md:text-2xl lg:text-3xl whitespace-nowrap">
               {firmInfo.name}
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1 xl:gap-2">
+          <div className="hidden lg:flex items-center gap-1 xl:gap-2 flex-1 justify-center">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 href={link.path}
-                className={`rounded-lg px-4 py-2.5 font-semibold text-base transition-all duration-200 xl:px-5 ${
+                className={`rounded-lg px-3 py-2.5 font-semibold text-sm transition-all duration-200 xl:px-4 xl:text-base whitespace-nowrap ${
                   isActive(link.path)
                     ? 'bg-brand-900 text-white dark:bg-slate-700'
-                    : 'text-ink-900 hover:bg-blue-50 hover:text-brand-900 dark:text-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-100'
+                    : 'text-ink-900 hover:bg-blue-50 hover:text-brand-900 dark:text-slate-100 dark:hover:bg-slate-800'
                 }`}
               >
                 {link.label}

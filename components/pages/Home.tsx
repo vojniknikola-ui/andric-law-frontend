@@ -177,25 +177,16 @@ export const Home: React.FC = () => {
       />
       {/* Hero - F-pattern optimized */}
       <section
-        className="relative isolate overflow-hidden bg-brand-900 text-white transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100"
-        style={{
-          backgroundImage: "url('https://your-blob-url.vercel-storage.com/hero-balance.jpg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+        className="relative isolate overflow-hidden bg-gradient-to-br from-brand-900 via-brand-700 to-brand-900 text-white transition-colors duration-300 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950"
         itemScope
         itemType="https://schema.org/LegalService"
       >
-        <div
-          className="absolute inset-0 bg-brand-900/80 mix-blend-multiply transition-opacity duration-500 dark:bg-slate-950/85"
-          aria-hidden="true"
-        />
-        <div className="relative mx-auto max-w-7xl px-4 py-16 backdrop-blur-[1px] sm:px-6 md:py-24 lg:py-32 xl:py-40">
+        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:py-32 xl:py-40">
           <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-            <h1 className="animate-hero text-balance text-3xl font-bold leading-tight text-white drop-shadow-lg dark:text-slate-100 sm:text-4xl md:text-5xl lg:mb-8 lg:text-6xl xl:text-7xl">
+            <h1 className="animate-hero text-balance text-3xl font-bold leading-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl lg:mb-8 lg:text-6xl xl:text-7xl">
               {t.home.hero.headline}
             </h1>
-            <p className="animate-hero animation-delay-200 mb-8 max-w-3xl text-balance text-lg leading-relaxed text-white dark:text-slate-200 sm:text-xl md:text-2xl lg:mb-12">
+            <p className="animate-hero animation-delay-200 mb-8 max-w-3xl text-balance text-lg leading-relaxed text-white/95 sm:text-xl md:text-2xl lg:mb-12">
               {heroSubheadlineParts[0]}
               <span className="font-semibold text-white dark:text-slate-50">{firmInfo.founder}</span>
               {heroSubheadlineParts[1] ?? ''}
@@ -223,12 +214,12 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Situation Navigator - high information scent */}
-      <section className="bg-surface py-12 transition-colors duration-300 dark:bg-slate-950 md:py-16 lg:py-20 xl:py-24">
+      <section className="bg-white py-12 transition-colors duration-300 dark:bg-slate-950 md:py-16 lg:py-20 xl:py-24">
         <div className="mx-auto max-w-7xl px-4 transition-colors duration-300 sm:px-6 lg:px-8">
-          <h2 className="mb-6 text-2xl font-bold text-brand-900 sm:text-3xl md:text-4xl lg:mb-10 lg:text-5xl">
+          <h2 className="mb-6 text-2xl font-bold text-brand-900 dark:text-slate-100 sm:text-3xl md:text-4xl lg:mb-10 lg:text-5xl">
             {t.home.situations.heading}
           </h2>
-          <p className="mb-8 max-w-4xl text-base text-ink-600 md:text-lg lg:mb-10 lg:text-xl">
+          <p className="mb-8 max-w-4xl text-base text-ink-600 dark:text-slate-300 md:text-lg lg:mb-10 lg:text-xl">
             {t.home.situations.description}
           </p>
           <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-2 lg:gap-8 xl:grid-cols-4">
@@ -238,15 +229,15 @@ export const Home: React.FC = () => {
                 href={situation.link}
                 className="group flex items-center gap-4 rounded-xl border-2 border-transparent bg-gray-50 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-line-200 hover:bg-blue-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700 dark:hover:bg-slate-800 md:p-6 lg:p-8"
               >
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-blue-100 text-brand-700 transition-all duration-300 group-hover:bg-blue-200 dark:bg-slate-800 dark:text-slate-200 dark:group-hover:bg-slate-700 lg:h-14 lg:w-14">
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-blue-100 text-brand-700 transition-all duration-300 group-hover:bg-cta-600 group-hover:text-white dark:bg-slate-800 dark:text-slate-200 dark:group-hover:bg-cta-600 lg:h-14 lg:w-14">
                   {situation.icon}
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-base font-semibold text-brand-900 transition-colors group-hover:text-link-600 dark:text-slate-100 dark:group-hover:text-link-400 md:text-lg lg:text-xl">
+                  <h3 className="text-base font-semibold text-brand-900 transition-colors group-hover:text-cta-600 dark:text-slate-100 dark:group-hover:text-cta-400 md:text-lg lg:text-xl">
                     {situation.title}
                   </h3>
                 </div>
-                <ArrowRight className="h-5 w-5 text-ink-600 transition-all group-hover:translate-x-1 group-hover:text-link-600 dark:text-slate-300" />
+                <ArrowRight className="h-5 w-5 text-ink-600 transition-all group-hover:translate-x-1 group-hover:text-cta-600 dark:text-slate-300 dark:group-hover:text-cta-400" />
               </Link>
             ))}
           </div>
@@ -254,41 +245,41 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Credentials - evidence, not marketing */}
-      <section className="bg-[#F7F7F5] py-12 transition-colors duration-300 dark:bg-slate-950 md:py-16 lg:py-20 xl:py-24">
+      <section className="bg-gray-50 py-12 transition-colors duration-300 dark:bg-slate-900 md:py-16 lg:py-20 xl:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="mb-8 text-2xl font-bold text-brand-900 sm:text-3xl md:text-4xl lg:mb-12 lg:text-5xl">
+          <h2 className="mb-8 text-2xl font-bold text-brand-900 dark:text-slate-100 sm:text-3xl md:text-4xl lg:mb-12 lg:text-5xl">
             {t.home.credentials.heading}
           </h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
             {credentials.map((credential) => (
               <div key={credential} className="flex items-start gap-3">
-                <CheckCircle className="mt-1 h-6 w-6 flex-shrink-0 text-success-600 dark:text-success-400" />
-                <p className="leading-relaxed text-ink-900">{credential}</p>
+                <CheckCircle className="mt-1 h-6 w-6 flex-shrink-0 text-success-600 dark:text-green-400" />
+                <p className="leading-relaxed text-ink-900 dark:text-slate-200">{credential}</p>
               </div>
             ))}
           </div>
 
-          <div className="mx-auto mt-12 max-w-4xl rounded-xl border-2 border-line-200 bg-surface p-6 transition-colors duration-300 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 lg:mt-16 lg:p-10">
-            <h3 className="mb-6 text-xl font-bold text-brand-900 md:text-2xl lg:mb-8 lg:text-3xl">
+          <div className="mx-auto mt-12 max-w-4xl rounded-xl border-2 border-line-200 bg-white p-6 shadow-soft transition-colors duration-300 dark:border-slate-700 dark:bg-slate-800 lg:mt-16 lg:p-10">
+            <h3 className="mb-6 text-xl font-bold text-brand-900 dark:text-slate-100 md:text-2xl lg:mb-8 lg:text-3xl">
               {t.home.pricing.heading}
             </h3>
             <div className="mb-6 space-y-4 lg:space-y-5">
               {pricingItems.map((item) => (
                 <div key={item.label} className="flex items-center justify-between">
-                  <span className="font-medium text-ink-900">{item.label}</span>
-                  <span className="font-bold text-brand-900">{item.value}</span>
+                  <span className="font-medium text-ink-900 dark:text-slate-200">{item.label}</span>
+                  <span className="font-bold text-brand-900 dark:text-cta-400">{item.value}</span>
                 </div>
               ))}
             </div>
-            <p className="text-sm text-ink-600 md:text-base">{t.home.pricing.note}</p>
+            <p className="text-sm text-ink-600 dark:text-slate-300 md:text-base">{t.home.pricing.note}</p>
           </div>
         </div>
       </section>
 
       {/* Featured Topics - scannable */}
-      <section className="bg-surface py-12 transition-colors duration-300 dark:bg-slate-950 md:py-16 lg:py-20 xl:py-24">
+      <section className="bg-white py-12 transition-colors duration-300 dark:bg-slate-950 md:py-16 lg:py-20 xl:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="mb-8 text-2xl font-bold text-brand-900 sm:text-3xl md:text-4xl lg:mb-12 lg:text-5xl">
+          <h2 className="mb-8 text-2xl font-bold text-brand-900 dark:text-slate-100 sm:text-3xl md:text-4xl lg:mb-12 lg:text-5xl">
             {t.home.guides.heading}
           </h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
@@ -296,13 +287,13 @@ export const Home: React.FC = () => {
               <Link
                 key={guide.title}
                 href="/blog"
-                className="group card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                className="group card p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-hard"
               >
-                <h3 className="mb-3 text-xl font-bold text-brand-900 transition-colors group-hover:text-link-600">
+                <h3 className="mb-3 text-xl font-bold text-brand-900 dark:text-slate-100 transition-colors group-hover:text-cta-600 dark:group-hover:text-cta-400">
                   {guide.title}
                 </h3>
-                <p className="mb-4 leading-relaxed text-ink-600">{guide.description}</p>
-                <span className="inline-flex items-center gap-2 font-semibold text-link-600 transition-all group-hover:gap-3">
+                <p className="mb-4 leading-relaxed text-ink-600 dark:text-slate-300">{guide.description}</p>
+                <span className="inline-flex items-center gap-2 font-semibold text-cta-600 dark:text-cta-400 transition-all group-hover:gap-3">
                   {t.home.guides.cta}
                   <ArrowRight size={18} />
                 </span>
@@ -313,23 +304,23 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Process overview */}
-      <section className="bg-white py-12 transition-colors duration-300 dark:bg-slate-950 md:py-16 lg:py-20 xl:py-24">
+      <section className="bg-gray-50 py-12 transition-colors duration-300 dark:bg-slate-900 md:py-16 lg:py-20 xl:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 max-w-2xl">
-            <h2 className="font-serif text-3xl font-bold text-brand-900 md:text-4xl">{t.home.process.heading}</h2>
-            <p className="text-ink-600">{t.home.process.description}</p>
+            <h2 className="font-serif text-3xl font-bold text-brand-900 dark:text-slate-100 md:text-4xl">{t.home.process.heading}</h2>
+            <p className="text-ink-600 dark:text-slate-300">{t.home.process.description}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
             {processSteps.map((step, index) => (
               <div
                 key={step.title}
-                className="rounded-3xl border border-line-200 bg-neutral-50 p-8 shadow-soft transition-colors duration-300 dark:border-slate-700 dark:bg-slate-900 dark:shadow-none"
+                className="rounded-3xl border border-line-200 bg-white p-8 shadow-soft transition-all duration-300 hover:shadow-medium dark:border-slate-700 dark:bg-slate-800"
               >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-cta-600/10 text-cta-600 font-semibold dark:bg-cta-600/20 dark:text-accent-400">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-cta-600/10 text-cta-600 font-semibold dark:bg-cta-600/20 dark:text-cta-400">
                   0{index + 1}
                 </div>
-                <h3 className="mb-2 text-xl font-semibold text-brand-900">{step.title}</h3>
-                <p className="leading-relaxed text-ink-600">{step.description}</p>
+                <h3 className="mb-2 text-xl font-semibold text-brand-900 dark:text-slate-100">{step.title}</h3>
+                <p className="leading-relaxed text-ink-600 dark:text-slate-300">{step.description}</p>
               </div>
             ))}
           </div>
@@ -337,23 +328,23 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Why choose us */}
-      <section className="bg-neutral-50 py-12 transition-colors duration-300 dark:bg-slate-950 md:py-16 lg:py-20 xl:py-24">
+      <section className="bg-white py-12 transition-colors duration-300 dark:bg-slate-950 md:py-16 lg:py-20 xl:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 max-w-2xl">
-            <h2 className="font-serif text-3xl font-bold text-brand-900 md:text-4xl">{t.home.guarantees.heading}</h2>
-            <p className="text-ink-600">{t.home.guarantees.description}</p>
+            <h2 className="font-serif text-3xl font-bold text-brand-900 dark:text-slate-100 md:text-4xl">{t.home.guarantees.heading}</h2>
+            <p className="text-ink-600 dark:text-slate-300">{t.home.guarantees.description}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
             {guarantees.map((item) => (
               <div
                 key={item.title}
-                className="rounded-3xl border border-line-200 bg-white p-8 shadow-soft transition-colors duration-300 dark:border-slate-700 dark:bg-slate-900 dark:shadow-none"
+                className="rounded-3xl border border-line-200 bg-gray-50 p-8 shadow-soft transition-all duration-300 hover:shadow-medium dark:border-slate-700 dark:bg-slate-800"
               >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-cta-600/10 text-cta-600 dark:bg-cta-600/20 dark:text-accent-400">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-cta-600/10 text-cta-600 dark:bg-cta-600/20 dark:text-cta-400">
                   {item.icon}
                 </div>
-                <h3 className="mb-2 text-xl font-semibold text-brand-900">{item.title}</h3>
-                <p className="leading-relaxed text-ink-600">{item.description}</p>
+                <h3 className="mb-2 text-xl font-semibold text-brand-900 dark:text-slate-100">{item.title}</h3>
+                <p className="leading-relaxed text-ink-600 dark:text-slate-300">{item.description}</p>
               </div>
             ))}
           </div>
@@ -361,25 +352,25 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Micro CTA - document review */}
-      <section className="bg-blue-50 py-12 transition-colors duration-300 dark:bg-slate-900 md:py-16 lg:py-20 xl:py-24">
+      <section className="bg-gradient-to-br from-blue-50 to-blue-100 py-12 transition-colors duration-300 dark:from-slate-900 dark:to-slate-800 md:py-16 lg:py-20 xl:py-24">
         <div className="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="mb-4 text-3xl font-bold text-brand-900 dark:text-slate-100 md:text-4xl">
             {t.home.microCta.heading}
           </h2>
-          <p className="mb-8 text-lg leading-relaxed text-ink-900 dark:text-slate-200">
+          <p className="mb-8 text-lg leading-relaxed text-ink-900 dark:text-slate-100">
             {t.home.microCta.description}
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <a
               href={`mailto:${firmInfo.email}`}
-              className="inline-flex min-h-[56px] items-center justify-center gap-3 rounded-lg bg-brand-900 px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-brand-700"
+              className="inline-flex min-h-[56px] items-center justify-center gap-3 rounded-lg bg-brand-900 px-8 py-4 text-lg font-semibold text-white shadow-medium transition-all duration-300 hover:scale-105 hover:bg-brand-700 hover:shadow-hard"
             >
               <Mail size={24} />
               {t.home.microCta.actions.email}
             </a>
             <Link
               href="/contact"
-              className="inline-flex min-h-[56px] items-center justify-center gap-3 rounded-lg border-2 border-line-200 bg-surface px-8 py-4 text-lg font-semibold text-brand-900 transition-colors hover:bg-gray-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800"
+              className="inline-flex min-h-[56px] items-center justify-center gap-3 rounded-lg border-2 border-brand-900 bg-white px-8 py-4 text-lg font-semibold text-brand-900 shadow-medium transition-all duration-300 hover:scale-105 hover:bg-gray-50 hover:shadow-hard dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
             >
               {t.home.microCta.actions.schedule}
             </Link>
@@ -389,9 +380,9 @@ export const Home: React.FC = () => {
       </section>
 
       {/* FAQ */}
-      <section className="bg-surface py-12 transition-colors duration-300 dark:bg-slate-950 md:py-16 lg:py-20 xl:py-24">
+      <section className="bg-white py-12 transition-colors duration-300 dark:bg-slate-950 md:py-16 lg:py-20 xl:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="mb-6 text-center font-serif text-3xl font-bold text-brand-900 md:text-4xl">
+          <h2 className="mb-6 text-center font-serif text-3xl font-bold text-brand-900 dark:text-slate-100 md:text-4xl">
             {t.home.faqs.heading}
           </h2>
           <p className="mb-10 text-center text-ink-600 dark:text-slate-300">{t.home.faqs.description}</p>
@@ -401,16 +392,16 @@ export const Home: React.FC = () => {
               return (
                 <div
                   key={faq.question}
-                  className="rounded-2xl border border-line-200 bg-white shadow-soft transition-colors duration-300 dark:border-slate-700 dark:bg-slate-900 dark:shadow-none"
+                  className="rounded-2xl border border-line-200 bg-gray-50 shadow-soft transition-all duration-300 hover:shadow-medium dark:border-slate-700 dark:bg-slate-800"
                 >
                   <button
                     type="button"
-                    className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors duration-300 dark:text-slate-100"
+                    className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors duration-300"
                     onClick={() => setOpenFaqIndex(isOpen ? null : index)}
                     aria-expanded={isOpen}
                   >
-                    <span className="font-semibold text-brand-900">{faq.question}</span>
-                    <ChevronDown className={`h-5 w-5 text-ink-600 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+                    <span className="font-semibold text-brand-900 dark:text-slate-100">{faq.question}</span>
+                    <ChevronDown className={`h-5 w-5 text-ink-600 dark:text-slate-300 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
                   </button>
                   {isOpen && (
                     <div className="px-6 pb-6 leading-relaxed text-ink-700 dark:text-slate-200">{faq.answer}</div>
