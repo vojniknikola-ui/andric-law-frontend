@@ -6,12 +6,12 @@ import ReactMarkdown from 'react-markdown';
 import type { Components } from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
-import { useBlogPost } from '@/lib/hooks/useBlogPost';
 import { renderRichText } from '@/lib/utils/richTextRenderer';
 import { StructuredData } from '@/components/StructuredData';
 import { useTranslations } from '@/lib/i18n/useTranslations';
 import { firmInfo } from '@/lib/firmInfo';
 import { BASE_URL } from '@/lib/seo/constants';
+import { BlogPost } from '@/lib/services/blogService';
 
 const markdownComponents: Components = {
   h1: ({ node, children, ...props }) => (
@@ -171,10 +171,14 @@ const markdownComponents: Components = {
 
 interface ArticleDetailProps {
   slug: string;
+  initialArticle?: BlogPost;
 }
 
-export const ArticleDetail: React.FC<ArticleDetailProps> = ({ slug }) => {
-  const { data: post, isLoading, isError, error } = useBlogPost(slug ?? '');
+export const ArticleDetail: React.FC<ArticleDetailProps> = ({ slug, initialArticle }) => {
+  const post = initialArticle;
+  const isLoading = false;
+  const isError = !post;
+  const error = isError ? new Error('Article not found') : null;
   const { language } = useTranslations();
   const localeCode = language === 'bs' ? 'bs-BA' : 'en-US';
 

@@ -2,13 +2,19 @@
 import React, { useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { Calendar, User, ArrowRight } from 'lucide-react';
-import { useBlogPosts } from '@/lib/hooks/useBlogPosts';
 import { StructuredData } from '@/components/StructuredData';
 import { useTranslations } from '@/lib/i18n/useTranslations';
 import { BASE_URL } from '@/lib/seo/constants';
+import { BlogPost } from '@/lib/services/blogService';
 
-const Blog: React.FC = () => {
-  const { data: posts, isLoading, isError } = useBlogPosts();
+interface BlogProps {
+  initialPosts?: BlogPost[]
+}
+
+const Blog: React.FC<BlogProps> = ({ initialPosts = [] }) => {
+  const posts = initialPosts;
+  const isLoading = false;
+  const isError = false;
   const { language } = useTranslations();
   const localeCode = language === 'bs' ? 'bs-BA' : 'en-US';
 

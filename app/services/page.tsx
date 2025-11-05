@@ -6,6 +6,8 @@ export const metadata = {
   description: 'Pravne usluge u Sarajevu: privredno pravo, radno pravo, porodično pravo, ugovorno pravo, sudsko zastupanje.',
 }
 
+export const revalidate = 86400
+
 export default function ServicesPage() {
   return (
     <PageWrapper>
