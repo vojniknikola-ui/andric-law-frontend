@@ -16,6 +16,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 import { firmInfo } from '@/lib/firmInfo';
+import SearchBoxLazy from '@/components/SearchBoxLazy';
 
 export default function AndricLawLanding() {
   const kontaktRef = useRef<HTMLDivElement>(null);
@@ -63,6 +64,9 @@ export default function AndricLawLanding() {
             <p className="max-w-2xl text-slate-300 text-lg">
               Specijalizirani za radno pravo, IT ugovore i privredno pravo. Stručno, precizno i brzo — bez agresivnog marketinga, sa fokusom na rezultat.
             </p>
+            <div className="w-full max-w-2xl mb-4">
+              <SearchBoxLazy />
+            </div>
             <div className="flex flex-wrap gap-3">
               <button onClick={scrollToKontakt} className="group inline-flex items-center gap-2 rounded-xl bg-emerald-400/90 hover:bg-emerald-300 text-emerald-950 font-semibold px-5 py-3 transition">
                 Zakaži konsultacije <ChevronRight className="size-4 transition group-hover:translate-x-0.5" />
