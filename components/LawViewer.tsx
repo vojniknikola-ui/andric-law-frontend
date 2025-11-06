@@ -28,19 +28,19 @@ export default function LawViewer({ lawContent }: { lawContent: string }) {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
+    <div className="max-w-5xl mx-auto px-4 py-8">
       {sections.map(section => (
-        <div key={section.id} className="mb-8 border-b pb-6">
-          <div className="flex items-start justify-between gap-4">
+        <article key={section.id} className="mb-10 bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <div className="flex items-start justify-between gap-6">
             <div className="flex-1">
-              <ReactMarkdown className="prose prose-sm max-w-none">
+              <ReactMarkdown className="prose prose-lg max-w-none text-black prose-headings:text-black prose-p:text-black prose-strong:text-black prose-li:text-black">
                 {section.content}
               </ReactMarkdown>
             </div>
             {section.history && (
               <button
                 onClick={() => toggleHistory(section.id)}
-                className="flex-shrink-0 px-3 py-1 text-sm bg-blue-100 hover:bg-blue-200 rounded"
+                className="flex-shrink-0 px-4 py-2 text-sm font-medium bg-blue-600 text-white hover:bg-blue-700 rounded-lg transition-colors shadow-sm"
               >
                 📜 Historijat
               </button>
@@ -48,13 +48,14 @@ export default function LawViewer({ lawContent }: { lawContent: string }) {
           </div>
           
           {section.history && expandedHistory.has(section.id) && (
-            <div className="mt-4 p-4 bg-gray-50 rounded border-l-4 border-blue-500">
-              <ReactMarkdown className="prose prose-sm max-w-none text-gray-700">
+            <div className="mt-6 p-5 bg-amber-50 rounded-lg border-l-4 border-amber-500">
+              <h4 className="text-sm font-semibold text-black mb-3">Historijat izmjena</h4>
+              <ReactMarkdown className="prose prose-sm max-w-none text-black prose-headings:text-black prose-p:text-black prose-strong:text-black">
                 {section.history}
               </ReactMarkdown>
             </div>
           )}
-        </div>
+        </article>
       ))}
     </div>
   );
