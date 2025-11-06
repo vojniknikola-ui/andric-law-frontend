@@ -7,13 +7,14 @@ export const metadata = {
   robots: 'noindex,follow'
 };
 
-export default function SearchPage({ searchParams }: { searchParams: { q?: string; filter?: string } }) {
+export default async function SearchPage({ searchParams }: { searchParams: Promise<{ q?: string; filter?: string }> }) {
+  const params = await searchParams;
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-6xl mx-auto px-4">
         <h1 className="text-3xl font-bold mb-8">Pretraga</h1>
         <Suspense fallback={<SearchSkeleton />}>
-          <SearchResults query={searchParams.q} filter={searchParams.filter} />
+          <SearchResults query={params.q} filter={params.filter} />
         </Suspense>
       </div>
     </div>
