@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import { getBlogPosts } from '@/lib/services/strapiService';
+import { searchBlogPosts, type HighlightSnippet } from '@/lib/search/blog-search';
+import { buildNormalizedCorpus } from '@/lib/search/text-utils';
 
 export const runtime = 'edge';
 
@@ -16,7 +18,7 @@ const MOCK_CASES = [
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const q = searchParams.get('q')?.toLowerCase() || '';
+  const q = searchParams.get('q')?.trim() || '';
   const filter = searchParams.get('filter') || 'all';
 
   if (!q) {
@@ -24,34 +26,68 @@ export async function GET(request: Request) {
   }
 
   let results: any[] = [];
+  const normalizedQuery = buildNormalizedCorpus(q);
+
+  const snippetToPlainText = (snippet: HighlightSnippet | null): string | null => {
+    if (!snippet) {
+      return null;
+    }
+    const text = snippet.segments.map((segment) => segment.text).join('');
+    if (!text) {
+      return null;
+    }
+    return `${snippet.prefix ? '…' : ''}${text}${snippet.suffix ? '…' : ''}`;
+  };
+
+  const matchesMockEntry = (title: string, excerpt: string): boolean => {
+    if (!normalizedQuery) {
+      return false;
+    }
+    const normalizedTitle = buildNormalizedCorpus(title);
+    const normalizedExcerpt = buildNormalizedCorpus(excerpt);
+    return normalizedTitle.includes(normalizedQuery) || normalizedExcerpt.includes(normalizedQuery);
+  };
 
   try {
     if (filter === 'all' || filter === 'vijesti-clanci') {
       const posts = await getBlogPosts();
-      const filtered = posts.filter(p =>
-        p.title.toLowerCase().includes(q) ||
-        p.content?.toLowerCase().includes(q) ||
-        p.summary?.toLowerCase().includes(q)
-      );
-      results = [...results, ...filtered.map(p => ({ ...p, category: 'vijesti-clanci' }))];
+      const matches = searchBlogPosts(posts, q);
+      results = [
+        ...results,
+        ...matches.map((match) => ({
+          id: match.post.id,
+          title: match.post.title,
+          slug: match.post.slug,
+          category: 'vijesti-clanci' as const,
+          similarity: match.similarity,
+          matchedField: match.matchedField,
+          snippet: snippetToPlainText(match.snippet ?? null),
+          summary: match.post.summary,
+          excerpt: match.post.summary || match.post.content,
+        })),
+      ];
     }
 
     if (filter === 'all' || filter === 'zakoni') {
       const zakoni = MOCK_LAWS.filter(z =>
-        z.title.toLowerCase().includes(q) || z.excerpt.toLowerCase().includes(q)
+        matchesMockEntry(z.title, z.excerpt)
       );
       results = [...results, ...zakoni];
     }
 
     if (filter === 'all' || filter === 'sudska-praksa') {
       const sudska = MOCK_CASES.filter(s =>
-        s.title.toLowerCase().includes(q) || s.excerpt.toLowerCase().includes(q)
+        matchesMockEntry(s.title, s.excerpt)
       );
       results = [...results, ...sudska];
     }
 
+    const limitedResults = results
+      .sort((a, b) => (b.similarity ?? 0) - (a.similarity ?? 0))
+      .slice(0, 10);
+
     return NextResponse.json(
-      { results: results.slice(0, 10) },
+      { results: limitedResults },
       {
         headers: {
           'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',

@@ -1,7 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Phone, Mail, Menu, X, MapPin, Sun, Moon, Sparkles } from 'lucide-react'
 import { firmInfo } from '@/lib/firmInfo'
@@ -65,7 +64,8 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             <Link href="/" className="group flex items-center gap-3">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-lg opacity-50 group-hover:opacity-75 transition-opacity"></div>
-                <Image src={firmInfo.logo} alt={firmInfo.name} width={48} height={48} className="relative h-12 w-12 rounded-full" priority />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={firmInfo.logo} alt={firmInfo.name} className="relative h-12 w-12 rounded-full" />
               </div>
               <div className="font-serif text-2xl font-bold text-gradient">
                 {firmInfo.name}
